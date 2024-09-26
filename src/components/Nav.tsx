@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
-import { TripleFade as Hamburger } from "@adamjanicki/ui";
+import { useState } from "react";
+import { TripleSpin as Hamburger, Link, UnstyledLink } from "@adamjanicki/ui";
 import "src/components/nav.css";
-import Link, { UnstyledLink } from "src/components/Link";
-import { useLocation } from "react-router-dom";
 
 type NavlinkProps = {
   to: string;
@@ -10,13 +8,8 @@ type NavlinkProps = {
 };
 
 const Nav = () => {
-  const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
   const closeMenu = () => setOpen(false);
-
-  useEffect(() => {
-    closeMenu();
-  }, [pathname]);
 
   const Navlink = (props: NavlinkProps) => (
     <li className="navlink-li">
@@ -27,19 +20,24 @@ const Nav = () => {
   return (
     <nav className="flex items-center justify-between w-100 nav pv2 ph4">
       <div className="flex items-center justify-between bar-container">
-        <UnstyledLink className="nav-title" to="/">
-          Personal_Website
+        <UnstyledLink className="nav-title" to="#home">
+          Matthew Janicki
         </UnstyledLink>
         <div className="mobile">
-          <Hamburger open={open} onClick={() => setOpen(!open)} />
+          <Hamburger
+            open={open}
+            onClick={() => setOpen(!open)}
+            duration={0.4}
+          />
         </div>
       </div>
       <ul
         className="flex items-center desktop link-container ma0"
         style={{ display: open ? "flex" : undefined }}
       >
-        <Navlink to="/">Home</Navlink>
-        <Navlink to="/about/">About</Navlink>
+        <Navlink to="#home">Home</Navlink>
+        <Navlink to="#about-me">About Me</Navlink>
+        <Navlink to="#contact-information">Contact Information</Navlink>
       </ul>
     </nav>
   );

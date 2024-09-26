@@ -1,22 +1,18 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Footer from "src/components/Footer";
 import Nav from "src/components/Nav";
-import About from "src/pages/About";
-import Home from "src/pages/Home";
-import NotFound from "src/pages/NotFound";
+import About from "src/sections/About";
+import Home from "src/sections/Home";
+import Contact from "src/sections/Contact";
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <>
       <Nav />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about/" element={<About />} />
-        {/* Make sure this is the last route */}
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <Home />
+      <About />
+      <Contact />
       <Footer />
-    </BrowserRouter>
+    </>
   );
 };
 
