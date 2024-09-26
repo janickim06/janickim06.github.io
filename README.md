@@ -1,3 +1,3 @@
-# Personal_Website
+# My Personal Website
 
-A Portfolio of myself
+A portfolio containing my experience skill sets.
