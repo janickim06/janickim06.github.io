@@ -1,3 +1,3 @@
 # My Personal Website
 
-A portfolio containing my experience skill sets.
+A portfolio containing my experience and skill sets.
